@@ -1,2 +1,2 @@
 # IN-SB
-6 semester
+6 term
