@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab1", "Lab1\Lab1.csproj", "{916E68F1-0067-46C3-A946-6AAA062F8C14}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaesarCipher", "CaesarCipher\CaesarCipher.csproj", "{8AD6CB42-0B6B-481A-A4BC-A0562C5730A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VigenereСipher", "VigenereСipher\VigenereСipher.csproj", "{4264DA73-ECD5-40C6-A6DC-C6BFEFEF59E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{916E68F1-0067-46C3-A946-6AAA062F8C14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{916E68F1-0067-46C3-A946-6AAA062F8C14}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{916E68F1-0067-46C3-A946-6AAA062F8C14}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{916E68F1-0067-46C3-A946-6AAA062F8C14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AD6CB42-0B6B-481A-A4BC-A0562C5730A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AD6CB42-0B6B-481A-A4BC-A0562C5730A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AD6CB42-0B6B-481A-A4BC-A0562C5730A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AD6CB42-0B6B-481A-A4BC-A0562C5730A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4264DA73-ECD5-40C6-A6DC-C6BFEFEF59E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4264DA73-ECD5-40C6-A6DC-C6BFEFEF59E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4264DA73-ECD5-40C6-A6DC-C6BFEFEF59E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4264DA73-ECD5-40C6-A6DC-C6BFEFEF59E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
