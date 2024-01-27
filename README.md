@@ -1,2 +1,2 @@
 # IN-SB
-6 term
+Information networks. The basics of security. 6 term
