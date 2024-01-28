@@ -3,38 +3,44 @@ using System.IO;
 
 public class CaesarCipher
 {
-    const string alfabet = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
 
+    // Объявляем метод, который будет принимать текст и ключ
     private string CodeEncode(string text, int k)
     {
-        var fullAlfabet = alfabet + alfabet.ToLower();
+        // Создаем переменную, которая содержит в себе строчные и заглавные буквы алфавита (для обработки символов разных регистров)
+        const string fullAlfabet = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
+
         var letterQty = fullAlfabet.Length;
-        var retVal = "";
+        var result = "";
+
         for (int i = 0; i < text.Length; i++)
         {
-            var c = text[i];
-            var isUpper = Char.IsUpper(c); 
-            var index = fullAlfabet.IndexOf(Char.ToUpper(c));
+            var current = text[i];
+            var isUpper = Char.IsUpper(current); 
+            var index = fullAlfabet.IndexOf(Char.ToUpper(current));
+
             if (index < 0)
             {
-                retVal += c.ToString();
+                // Если символ не найден, то он же и вернется
+                result += current.ToString();
             }
             else
             {
+                // Обеспечиваем уикличность сдвига
                 var codeIndex = (letterQty + index + k) % letterQty;
-                retVal += isUpper ? Char.ToUpper(fullAlfabet[codeIndex]) : Char.ToLower(fullAlfabet[codeIndex]);
+                result += isUpper ? Char.ToUpper(fullAlfabet[codeIndex]) : Char.ToLower(fullAlfabet[codeIndex]);
             }
         }
 
-        return retVal;
+        return result;
     }
 
 
-    public string Encrypt(string plainMessage, int key)
-        => CodeEncode(plainMessage, key);
+    public string Encrypt(string plainText, int key)
+        => CodeEncode(plainText, key);
 
-    public string Decrypt(string encryptedMessage, int key)
-        => CodeEncode(encryptedMessage, -key);
+    public string Decrypt(string encryptedText, int key)
+        => CodeEncode(encryptedText, -key);
 }
 
 class Program
@@ -44,10 +50,10 @@ class Program
         var cipher = new CaesarCipher();
 
         // Чтение текста из файла
-        string encryptedText;
+        string plainText;
         try
         {
-            encryptedText = File.ReadAllText(@"D:\6 semester\IN-SB\Lab1\CaesarCipher\encryptedtext.txt");
+            plainText = File.ReadAllText(@"D:\6 semester\IN-SB\Lab1\CaesarCipher\encryptedtext.txt");
         }
         catch (IOException e)
         {
@@ -56,17 +62,16 @@ class Program
         }
 
         Console.WriteLine("Текст из файла:");
-        Console.WriteLine(encryptedText);
+        Console.WriteLine(plainText);
         Console.WriteLine();
 
         Console.Write("Введите значение ключа: ");
         var secretKey = Convert.ToInt32(Console.ReadLine());
 
-        var encryptedMessage = cipher.Encrypt(encryptedText, secretKey);
+        var encryptedText = cipher.Encrypt(plainText, secretKey);
 
-        Console.WriteLine("Зашифрованное сообщение: {0}", encryptedMessage);
-        Console.WriteLine("Расшифрованное сообщение: {0}", cipher.Decrypt(encryptedMessage, secretKey));
-        Console.ReadLine();
+        Console.WriteLine("Зашифрованное сообщение: {0}", encryptedText);
+        Console.WriteLine("Расшифрованное сообщение: {0}", cipher.Decrypt(encryptedText, secretKey));
 
     }
 }
